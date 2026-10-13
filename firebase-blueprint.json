@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "Suspect": {
+      "title": "Suspeito",
+      "description": "Registro de indivíduo abordado ou catalogado",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nome": { "type": "string" },
+        "alcunha": { "type": "string" },
+        "cpf": { "type": "string" },
+        "rg": { "type": "string" },
+        "fotos": { "type": "array" },
+        "faccao": { "type": "string" },
+        "artigos": { "type": "array" }
+      },
+      "required": ["id", "nome"]
+    },
+    "Orcrim": {
+      "title": "Organização Criminosa",
+      "description": "Organização criminosa ou facção mapeada",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nome": { "type": "string" },
+        "sigla": { "type": "string" },
+        "periculosidade": { "type": "string" }
+      },
+      "required": ["id", "nome", "sigla"]
+    },
+    "Abordagem": {
+      "title": "Registro de Abordagem",
+      "description": "Histórico de abordagem policial de campo",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "suspectId": { "type": "string" },
+        "dataHora": { "type": "string" },
+        "local": { "type": "string" }
+      },
+      "required": ["id", "suspectId"]
+    }
+  },
+  "firestore": {
+    "/suspects/{suspectId}": {
+      "schema": "Suspect",
+      "description": "Coleção central de indivíduos e abordados"
+    },
+    "/orcrims/{orcrimId}": {
+      "schema": "Orcrim",
+      "description": "Coleção de facções e organizações criminosas"
+    },
+    "/abordagens/{abordagemId}": {
+      "schema": "Abordagem",
+      "description": "Histórico tático de abordagens policiais"
+    }
+  }
+}

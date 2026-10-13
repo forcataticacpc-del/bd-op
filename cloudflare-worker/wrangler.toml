@@ -1,0 +1,19 @@
+name = "forca-tatica-api"
+main = "src/index.ts"
+compatibility_date = "2024-03-01"
+
+# Bindings do Cloudflare D1 (Banco SQL)
+[[d1_databases]]
+binding = "DB"
+database_name = "forca_tatica_db"
+database_id = "seu-database-id-aqui" # Obtido com: npx wrangler d1 create forca_tatica_db
+
+# Bindings do Cloudflare R2 (Armazenamento de Fotos e Mídias)
+[[r2_buckets]]
+binding = "PHOTOS_BUCKET"
+bucket_name = "forca-tatica-fotos"
+
+# Variáveis de ambiente operacionais
+[vars]
+API_KEY = "forca-tatica-token-secreto"
+MAX_PHOTO_SIZE_MB = "15"

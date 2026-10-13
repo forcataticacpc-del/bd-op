@@ -1,0 +1,32 @@
+{
+  "id": "/",
+  "name": "Banco de Dados Operacional",
+  "short_name": "Banco Operacional",
+  "description": "Sistema Banco de Dados Operacional - Registro de abordagens, inteligência criminal, organogramas e rede de vínculos.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "icons": [
+    {
+      "src": "/banco_de_dados_logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/banco_de_dados_logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/banco_de_dados_logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

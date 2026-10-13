@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   TIPOGRAFIA UNIFICADA - INTER / SYSTEM-UI
+   Padronização de fontes moderna, limpa e legível em toda a aplicação
+   ========================================================================== */
+
+* {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body, button, input, select, textarea {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ==========================================================================
+   BANCO DE DADOS - TEMA CLARO (MODO CLARO)
+   Mantém a identidade militar de comando, o brasão dourado e contraste tático
+   ========================================================================== */
+
+html.light body,
+html.light #root {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Fundo principal da aplicação em modo claro */
+html.light .bg-\[\#0d1117\],
+html.light main {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Header em modo claro: preserva a imponência do estandarte militar tático */
+html.light header {
+  background-color: #0d1117 !important;
+  border-bottom: 1px solid rgba(198, 156, 89, 0.45) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Barra de Pesquisa e Inputs em modo claro */
+html.light #search-input,
+html.light input[type="text"]:not(#search-input),
+html.light input[type="search"] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+html.light #search-input::placeholder,
+html.light input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Botões da barra de busca e filtros em modo claro */
+html.light .bg-\[\#161b22\],
+html.light .bg-\[\#12161f\],
+html.light .bg-\[\#101520\] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+/* Cards em modo claro: Normal (Nenhum marcador) */
+html.light .card-marcador-nenhum,
+html.light .bg-\[\#10141d\]:not(.card-marcador-morto):not(.card-marcador-preso):not(.card-marcador-alvo) {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light .card-marcador-nenhum h3 {
+  color: #0f172a !important;
+}
+
+html.light .card-marcador-nenhum .text-neutral-200,
+html.light .card-marcador-nenhum .text-neutral-300 {
+  color: #334155 !important;
+}
+
+html.light .card-marcador-nenhum .text-neutral-400,
+html.light .card-marcador-nenhum .text-neutral-500 {
+  color: #64748b !important;
+}
+
+html.light .card-marcador-nenhum strong {
+  color: #0f172a !important;
+}
+
+/* ==========================================================================
+   CARDS COM MARCADORES EM MODO CLARO
+   O card adquire a cor tática do marcador e o badge permanece bem visível
+   ========================================================================== */
+
+/* 1. MARCADOR MORTO - Vermelho tático suave e respeitoso */
+html.light .card-marcador-morto {
+  background: linear-gradient(180deg, #fff1f2 0%, #fee2e2 100%) !important;
+  border-color: #f87171 !important;
+  color: #450a0a !important;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.15) !important;
+}
+
+html.light .card-marcador-morto h3 {
+  color: #7f1d1d !important;
+}
+
+html.light .card-marcador-morto .text-white,
+html.light .card-marcador-morto strong {
+  color: #7f1d1d !important;
+}
+
+html.light .card-marcador-morto .text-neutral-200,
+html.light .card-marcador-morto .text-neutral-300,
+html.light .card-marcador-morto .text-neutral-400 {
+  color: #991b1b !important;
+}
+
+html.light .card-marcador-morto .bg-red-950\/95,
+html.light .card-marcador-morto .bg-red-950\/90 {
+  background-color: #991b1b !important;
+  border-color: #7f1d1d !important;
+  color: #ffffff !important;
+}
+
+/* 2. MARCADOR PRESO - Azul operacional tático */
+html.light .card-marcador-preso {
+  background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%) !important;
+  border-color: #60a5fa !important;
+  color: #082f49 !important;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15) !important;
+}
+
+html.light .card-marcador-preso h3 {
+  color: #1e3a8a !important;
+}
+
+html.light .card-marcador-preso .text-white,
+html.light .card-marcador-preso strong {
+  color: #1e3a8a !important;
+}
+
+html.light .card-marcador-preso .text-neutral-200,
+html.light .card-marcador-preso .text-neutral-300,
+html.light .card-marcador-preso .text-neutral-400 {
+  color: #1e40af !important;
+}
+
+html.light .card-marcador-preso .bg-blue-950\/95,
+html.light .card-marcador-preso .bg-slate-900\/90 {
+  background-color: #1e40af !important;
+  border-color: #1d4ed8 !important;
+  color: #ffffff !important;
+}
+
+/* 3. MARCADOR ALVO PRIORITÁRIO - Dourado tático âmbar */
+html.light .card-marcador-alvo {
+  background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%) !important;
+  border-color: #f59e0b !important;
+  color: #451a03 !important;
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.18) !important;
+}
+
+html.light .card-marcador-alvo h3 {
+  color: #78350f !important;
+}
+
+html.light .card-marcador-alvo .text-white,
+html.light .card-marcador-alvo strong {
+  color: #78350f !important;
+}
+
+html.light .card-marcador-alvo .text-neutral-200,
+html.light .card-marcador-alvo .text-neutral-300,
+html.light .card-marcador-alvo .text-neutral-400 {
+  color: #92400e !important;
+}
+
+html.light .card-marcador-alvo .bg-\[\#2b1e0a\]\/95,
+html.light .card-marcador-alvo .bg-\[\#221c12\]\/90 {
+  background-color: #92400e !important;
+  border-color: #78350f !important;
+  color: #ffffff !important;
+}
+
+/* Modais e Paineis em Modo Claro */
+html.light .bg-\[\#121721\],
+html.light .bg-\[\#131823\],
+html.light .bg-\[\#141a24\],
+html.light .bg-\[\#161b22\] {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-\[\#141822\],
+html.light .bg-\[\#18202d\],
+html.light .bg-\[\#1a202c\],
+html.light .bg-\[\#1f2637\],
+html.light .bg-\[\#0c1017\] {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Preserva o botão dourado operacional */
+html.light .bg-\[\#c69c59\] {
+  background-color: #c69c59 !important;
+  color: #0a0f18 !important;
+}
+
+html.light .bg-\[\#c69c59\]:hover {
+  background-color: #d4af37 !important;
+}
+
+/* Textos gerais em Modo Claro */
+html.light .text-neutral-100 {
+  color: #0f172a !important;
+}
+
+html.light .text-neutral-300 {
+  color: #334155 !important;
+}
+
+html.light .text-neutral-400 {
+  color: #64748b !important;
+}
+
+html.light .border-neutral-800,
+html.light .border-neutral-800\/80,
+html.light .border-neutral-800\/90,
+html.light .border-neutral-700\/80 {
+  border-color: #cbd5e1 !important;
+}
+
+/* ==========================================================================
+   OTIMIZAÇÃO DE VELOCIDADE E RENDERIZAÇÃO TÁTICA (HARDWARE ACCELERATION)
+   content-visibility: auto permite que o navegador ignore o cálculo de layout
+   e pintura de cards fora da viewport, acelerando a rolagem para 60 FPS.
+   ========================================================================== */
+.card-content-visibility {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 320px;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+

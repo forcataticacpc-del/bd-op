@@ -1,0 +1,6 @@
+{
+  "name": "BANCO DE DADOS",
+  "description": "Sistema Operacional BANCO DE DADOS - Registro de abordagens, inteligência criminal, organogramas e rede de vínculos.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
