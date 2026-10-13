@@ -96,7 +96,7 @@ export const CloudflareModal: React.FC<CloudflareModalProps> = ({
 
   const handleSyncAll = async () => {
     if (!url.trim()) {
-      alert('Preencha a URL do Cloudflare Worker antes de sincronizar.');
+      setSyncResult('⚠️ Preencha a URL do Cloudflare Worker antes de sincronizar.');
       return;
     }
     setSyncing(true);

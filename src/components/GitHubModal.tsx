@@ -149,7 +149,10 @@ export const GitHubModal: React.FC<GitHubModalProps> = ({
 
   const handlePushToGitHub = async () => {
     if (!repoUrl.trim()) {
-      alert('Preencha a URL do repositório GitHub antes de enviar.');
+      setPushResult({
+        success: false,
+        message: 'Preencha a URL do repositório GitHub antes de enviar.',
+      });
       return;
     }
 

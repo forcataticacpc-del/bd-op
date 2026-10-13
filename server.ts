@@ -306,12 +306,22 @@ async function startServer() {
       logs.push('⚙️ Inicializando configuração do Git local...');
       await runCmd('git config user.name "Força Tática - BD OP"');
       await runCmd('git config user.email "forcataticacpc@gmail.com"');
+      try {
+        await runCmd('git config --unset http.version');
+        await runCmd('git config --unset http.postBuffer');
+      } catch {}
+
       if (!fs.existsSync(path.join(process.cwd(), '.git'))) {
         await runCmd('git init');
       }
       await runCmd('git branch -M main');
 
       logs.push('📦 Adicionando arquivos do projeto ao Git...');
+      try {
+        if (fs.existsSync(path.join(process.cwd(), '.github'))) {
+          await runCmd('rm -rf .github');
+        }
+      } catch {}
       await runCmd('git add -A');
 
       const msg = (
@@ -357,9 +367,17 @@ async function startServer() {
       });
     } catch (err: any) {
       console.error('[GITHUB PUSH ERROR]:', err);
+      let errorMsg = err.message || 'Erro ao sincronizar com o GitHub.';
+      if (errorMsg.includes('without `workflow` scope')) {
+        errorMsg = 'O Token do GitHub não possui escopo de workflow. Arquivos de workflow foram isolados para permitir push com escopo "repo".';
+      } else if (errorMsg.includes('HTTP 408')) {
+        errorMsg = 'Timeout temporário de rede no envio. Tente novamente.';
+      } else if (errorMsg.includes('Authentication failed') || errorMsg.includes('Invalid username or password') || errorMsg.includes('401')) {
+        errorMsg = 'Falha de autenticação no GitHub. Verifique se o Personal Access Token (PAT) é válido e não expirou.';
+      }
       return res.status(200).json({
         success: false,
-        message: `Erro ao enviar para o GitHub: ${err.message || 'Verifique se o token de acesso tem permissão "repo" e se a URL do repositório está correta.'}`,
+        message: errorMsg,
       });
     }
   });

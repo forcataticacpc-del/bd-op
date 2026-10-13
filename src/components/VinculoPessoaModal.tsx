@@ -61,12 +61,15 @@ export const VinculoPessoaModal: React.FC<VinculoPessoaModalProps> = ({
 
   if (!isOpen) return null;
 
+  const [errorMsg, setErrorMsg] = useState('');
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!nome.trim() || !grauParentesco.trim()) {
-      alert('Preencha o nome e o grau de parentesco / relação.');
+      setErrorMsg('Preencha o nome e o grau de parentesco / relação.');
       return;
     }
+    setErrorMsg('');
 
     const record: VinculoPessoaRecord = {
       id: initialData?.id || `vinculo-p-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
@@ -118,6 +121,12 @@ export const VinculoPessoaModal: React.FC<VinculoPessoaModalProps> = ({
 
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-5 space-y-3.5 text-xs">
+          {errorMsg && (
+            <div className="p-2.5 rounded-lg bg-red-950/40 border border-red-500/40 text-red-300 text-xs">
+              ⚠️ {errorMsg}
+            </div>
+          )}
+
           {/* Nome Completo / Conhecido */}
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-neutral-200 mb-1">

@@ -222,7 +222,8 @@ export const UserManagementModal: React.FC<UserManagementModalProps> = ({ isOpen
 
   const handleDeleteUser = (user: AppUserProfile) => {
     if (user.login === '1779958') {
-      alert('A conta Master raiz 1779958 possui imunidade total e não pode ser excluída.');
+      setFeedback('⚠️ A conta Master raiz 1779958 possui imunidade total e não pode ser excluída.');
+      setTimeout(() => setFeedback(null), 3500);
       return;
     }
 
